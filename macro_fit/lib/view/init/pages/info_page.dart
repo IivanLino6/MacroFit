@@ -125,12 +125,27 @@ class _InfoPageState extends State<InfoPage> {
               icon: Icons.local_fire_department,
               vm: vm,
             ),
-            CustomFormField(
-              txt: 'Entrenamientos por semana?',
-              onChanged: (value) {
-                vm.changeActFreq(value);
+            //Training freq.
+            Row(children: [
+              Column(children: [
+                Text('Cuantas veces por semana',style: TextStyle(color: Colors.grey,fontSize: 8),),
+                Text('entrenas?',style: TextStyle(color: Colors.grey,fontSize: 8),)
+              ],),
+              DropdownMenu(
+                label: Text("1 vez"),
+              onSelected: (value){
+                vm.selecFreq(value!);
               },
-            ),
+              dropdownMenuEntries: [
+                DropdownMenuEntry(value: 1, label: "1"),
+                DropdownMenuEntry(value: 2, label: "2"),
+                DropdownMenuEntry(value: 3, label: "3"),
+                DropdownMenuEntry(value: 4, label: "4"),
+                DropdownMenuEntry(value: 5, label: "5"),
+                DropdownMenuEntry(value: 6, label: "6"),
+                DropdownMenuEntry(value: 7, label: "7")
+              ]),
+            ],),
             SizedBox(height: 100),
             Align(
               alignment: Alignment.topCenter,
